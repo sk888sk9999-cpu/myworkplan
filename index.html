@@ -13,7 +13,7 @@
     }
     *{box-sizing:border-box} body{margin:0;font-family:Inter, Pretendard, -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR",sans-serif;background:var(--bg);color:var(--text)}
     button,input,select,textarea{font:inherit} button{cursor:pointer}.app{display:grid;grid-template-columns:230px 1fr;min-height:100vh}
-    aside{background:var(--nav);color:#fff;padding:26px 18px;position:sticky;top:0;height:100vh}.brand{font-size:20px;font-weight:900;letter-spacing:-.6px;padding:0 10px 28px}.brand small{display:block;font-size:11px;color:#94a3b8;font-weight:600;margin-top:5px;letter-spacing:.2px}
+    aside{background:var(--nav);color:#fff;padding:26px 18px;position:sticky;top:0;height:100vh}.brand{font-size:20px;font-weight:900;letter-spacing:-.6px;padding:0 10px 28px}.brand small{display:block;font-size:11px;color:#94a3b8;font-weight:600;margin-top:5px;letter-spacing:.2px}.brand.home-logo{cursor:pointer;border-radius:12px;transition:background .15s}.brand.home-logo:hover{background:#1f2937}.brand.home-logo:focus-visible{outline:2px solid #60a5fa;outline-offset:2px}
     nav button{display:flex;align-items:center;gap:11px;width:100%;border:0;background:transparent;color:#aeb8c8;border-radius:12px;padding:12px 13px;margin:5px 0;text-align:left;font-weight:750}nav button.active,nav button:hover{background:#1f2937;color:#fff}.dot{width:9px;height:9px;border-radius:50%;background:#64748b}.active .dot{background:#60a5fa}
     .side-bottom{position:absolute;bottom:20px;left:18px;right:18px}.side-bottom button{width:100%;padding:11px;border-radius:12px;border:1px solid #334155;background:#1f2937;color:#e5e7eb;font-weight:700}
     main{padding:28px 32px 60px;min-width:0}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px}.topbar h1{font-size:27px;margin:0;letter-spacing:-1px}.today{color:var(--muted);font-size:13px;margin-top:5px}.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid var(--line);background:#fff;border-radius:11px;padding:10px 13px;font-weight:800;color:#334155}.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}.btn.danger{color:var(--red)}
@@ -34,9 +34,9 @@
     .userbox{padding:12px 10px 14px;border-top:1px solid #334155;margin-top:14px}.userbox .email{font-size:11px;color:#cbd5e1;word-break:break-all;margin-bottom:8px}.logout-btn{width:100%;border:1px solid #475569;background:#111827;color:#e5e7eb;border-radius:10px;padding:9px;font-weight:750}
     .sync-state{font-size:11px;color:#64748b;margin-left:8px}.hidden{display:none!important}
     .restore-link{border:0;background:#ecfdf5;color:#15803d;border-radius:8px;padding:5px 8px;font-size:11px;font-weight:900;margin-left:2px}.restore-link:hover{background:#dcfce7}.edited-at{color:#64748b;font-weight:750}.completed-summary{font-size:12px;color:#64748b;font-weight:750}
-    .mobile-nav{display:none}
+    .mobile-header{display:none}.mobile-nav{display:none}
     @media(max-width:1050px){.task{grid-template-columns:32px minmax(200px,1fr) 120px 100px 36px}.client{display:none}.stats{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:760px){.app{display:block}aside{display:none}main{padding:18px 14px 150px}.topbar{align-items:flex-start}.topbar h1{font-size:22px}.actions .btn.primary{display:none}.stats{gap:9px}.stat{padding:14px;border-radius:15px}.stat .num{font-size:25px}.panel-head{align-items:stretch;flex-direction:column}.filters{display:grid;grid-template-columns:1fr 1fr}.search{min-width:0;grid-column:1/-1}.task{grid-template-columns:28px minmax(0,1fr) 88px 34px;gap:8px}.task .due{font-size:10px}.status,.client{display:none}.mobile-add{display:block;bottom:78px}.grid2{grid-template-columns:1fr}.calendar-wrap{padding:8px}.day{min-height:82px;padding:5px}.cal-task{font-size:9px}.desktop-only{display:none}.topbar .actions{gap:5px}.topbar .btn{padding:8px 9px;font-size:11px}.mobile-nav{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;left:0;right:0;bottom:0;z-index:14;background:rgba(255,255,255,.97);border-top:1px solid var(--line);padding:7px 8px calc(7px + env(safe-area-inset-bottom));box-shadow:0 -8px 25px rgba(15,23,42,.08)}.mobile-nav .nav{border:0;background:transparent;color:#64748b;border-radius:10px;padding:7px 3px;font-size:10px;font-weight:850;text-align:center}.mobile-nav .nav span{display:block;font-size:18px;line-height:1.2;margin-bottom:2px}.mobile-nav .nav.active{background:#eff6ff;color:#2563eb}.restore-link{font-size:10px;padding:4px 7px}}
+    @media(max-width:760px){.app{display:block}aside{display:none}main{padding:14px 14px 150px}.mobile-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.mobile-brand{border:0;background:transparent;padding:6px 2px;color:#0f172a;font-size:19px;font-weight:950;letter-spacing:-.7px}.mobile-brand:active{opacity:.65}.mobile-logout{border:1px solid var(--line);background:#fff;color:#475569;border-radius:10px;padding:8px 11px;font-size:11px;font-weight:850}.topbar{align-items:flex-start}.topbar h1{font-size:22px}.actions .btn.primary{display:none}.stats{gap:9px}.stat{padding:14px;border-radius:15px}.stat .num{font-size:25px}.panel-head{align-items:stretch;flex-direction:column}.filters{display:grid;grid-template-columns:1fr 1fr}.search{min-width:0;grid-column:1/-1}.task{grid-template-columns:28px minmax(0,1fr) 88px 34px;gap:8px}.task .due{font-size:10px}.status,.client{display:none}.mobile-add{display:block;bottom:78px}.grid2{grid-template-columns:1fr}.calendar-wrap{padding:8px}.day{min-height:82px;padding:5px}.cal-task{font-size:9px}.desktop-only{display:none}.topbar .actions{gap:5px}.topbar .btn{padding:8px 9px;font-size:11px}.mobile-nav{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;left:0;right:0;bottom:0;z-index:14;background:rgba(255,255,255,.97);border-top:1px solid var(--line);padding:7px 8px calc(7px + env(safe-area-inset-bottom));box-shadow:0 -8px 25px rgba(15,23,42,.08)}.mobile-nav .nav{border:0;background:transparent;color:#64748b;border-radius:10px;padding:7px 3px;font-size:10px;font-weight:850;text-align:center}.mobile-nav .nav span{display:block;font-size:18px;line-height:1.2;margin-bottom:2px}.mobile-nav .nav.active{background:#eff6ff;color:#2563eb}.restore-link{font-size:10px;padding:4px 7px}}
   </style>
 </head>
 <body>
@@ -57,7 +57,7 @@
 </div>
 <div class="app hidden" id="appRoot">
   <aside>
-    <div class="brand">WORK FLOW<small>업무 스케줄 보드</small></div>
+    <div class="brand home-logo" data-home role="button" tabindex="0" aria-label="대시보드로 이동">WORK FLOW<small>업무 스케줄 보드</small></div>
     <nav>
       <button class="nav active" data-view="dashboard"><span class="dot"></span>대시보드</button>
       <button class="nav" data-view="all"><span class="dot"></span>전체 업무</button>
@@ -66,11 +66,12 @@
     </nav>
     <div class="side-bottom">
       <button id="notifyBtn">🔔 알림 켜기</button>
-      <div class="userbox"><div class="email" id="userEmail"></div><button class="logout-btn" id="logoutBtn">로그아웃</button></div>
+      <div class="userbox"><div class="email" id="userEmail"></div><button class="logout-btn" id="logoutBtn" data-logout>로그아웃</button></div>
     </div>
   </aside>
 
   <main>
+    <div class="mobile-header"><button class="mobile-brand" type="button" data-home aria-label="대시보드로 이동">WORK FLOW</button><button class="mobile-logout" type="button" data-logout>로그아웃</button></div>
     <div class="topbar">
       <div><h1 id="pageTitle">오늘 업무</h1><div class="today" id="todayText"></div><span class="sync-state" id="syncState"></span></div>
       <div class="actions">
@@ -205,11 +206,13 @@ async function migrateOldLocalTasks(){let old=[];try{old=JSON.parse(localStorage
 fillCategories();$('#todayText').textContent=new Date().toLocaleDateString('ko-KR',{year:'numeric',month:'long',day:'numeric',weekday:'long'});render();setInterval(checkNotifications,30000);
 $('#loginTab').onclick=()=>setAuthMode('login');$('#signupTab').onclick=()=>setAuthMode('signup');
 $('#authForm').onsubmit=async e=>{e.preventDefault();if(!db){showAuthError('Supabase 연결 정보가 필요합니다. config.js를 설정해 주세요.');return}showAuthError('');let email=$('#authEmail').value.trim(),password=$('#authPassword').value;$('#authSubmit').disabled=true;try{if(authMode==='login'){const {data,error}=await db.auth.signInWithPassword({email,password});if(error)throw error;await enterApp(data.user);await migrateOldLocalTasks()}else{const {data,error}=await db.auth.signUp({email,password});if(error)throw error;if(data.session){await enterApp(data.user)}else{showAuthError('가입 확인 메일을 보냈습니다. 이메일 인증 후 로그인해 주세요.')}}}catch(err){showAuthError(err.message||'인증에 실패했습니다.')}finally{$('#authSubmit').disabled=false}}
-$('#logoutBtn').onclick=async()=>{await db?.auth.signOut();leaveApp()};
+$$('[data-logout]').forEach(b=>b.onclick=async()=>{await db?.auth.signOut();leaveApp()});
 $('#taskForm').onsubmit=async e=>{e.preventDefault();let id=$('#taskId').value;let old=id?tasks.find(t=>t.id===id):null;let obj={id:id||uid(),name:$('#taskName').value.trim(),category:$('#taskCategory').value,client:$('#taskClient').value.trim(),due:new Date($('#taskDue').value).toISOString(),priority:$('#taskPriority').value,status:$('#taskStatus').value,repeat:$('#taskRepeat').value,reminder:Number($('#taskReminder').value),memo:$('#taskMemo').value.trim(),createdAt:old?.createdAt||new Date().toISOString(),updatedAt:id?new Date().toISOString():null,completedAt:$('#taskStatus').value==='done'?(old?.completedAt||new Date().toISOString()):null};if(id){let i=tasks.findIndex(t=>t.id===id);tasks[i]=obj}else tasks.push(obj);closeModal();render();try{await upsertTask(obj);toast('저장했습니다.')}catch{await loadTasks();toast('저장에 실패했습니다.')}}
 [$('#addBtn'),$('#mobileAdd')].forEach(b=>b.onclick=()=>openModal());$('#closeModal').onclick=$('#cancelModal').onclick=closeModal;$('#taskModal').onclick=e=>{if(e.target===$('#taskModal'))closeModal()}
 $$('.task-list').forEach(list=>list.onclick=e=>{let row=e.target.closest('.task');if(!row)return;let id=row.dataset.id;if(e.target.closest('[data-action="toggle"]'))toggleTask(id);else if(e.target.closest('[data-action="menu"]'))showMenu(e.target.closest('[data-action="menu"]'),id)});
-$$('.nav').forEach(b=>b.onclick=()=>{currentView=b.dataset.view;$$('.nav').forEach(x=>x.classList.toggle('active',x.dataset.view===currentView));$$('.section').forEach(s=>s.classList.remove('active'));$('#'+currentView).classList.add('active');$('#pageTitle').textContent={dashboard:'오늘 업무',all:'전체 업무',calendar:'캘린더',completed:'완료 업무'}[currentView];render()});
+function goView(view='dashboard'){currentView=view;$$('.nav').forEach(x=>x.classList.toggle('active',x.dataset.view===currentView));$$('.section').forEach(s=>s.classList.remove('active'));$('#'+currentView)?.classList.add('active');$('#pageTitle').textContent={dashboard:'오늘 업무',all:'전체 업무',calendar:'캘린더',completed:'완료 업무'}[currentView]||'오늘 업무';render();if(innerWidth<=760)window.scrollTo({top:0,behavior:'smooth'})}
+$$('.nav').forEach(b=>b.onclick=()=>goView(b.dataset.view));
+$$('[data-home]').forEach(el=>{el.onclick=()=>goView('dashboard');el.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();goView('dashboard')}}});
 ['dashSearch','dashCategory','allSearch','allCategory','doneSearch','doneCategory'].forEach(id=>$('#'+id).addEventListener(id.includes('Search')?'input':'change',render));
 $('#prevMonth').onclick=()=>{calCursor.setMonth(calCursor.getMonth()-1);renderCalendar()};$('#nextMonth').onclick=()=>{calCursor.setMonth(calCursor.getMonth()+1);renderCalendar()};$('#thisMonth').onclick=()=>{calCursor=new Date();renderCalendar()};
 $('#exportBtn').onclick=exportJSON;$('#importBtn').onclick=()=>$('#fileImport').click();$('#icsBtn').onclick=exportICS;$('#notifyBtn').onclick=enableNotify;
