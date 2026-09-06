@@ -9,7 +9,7 @@
   <meta name="apple-mobile-web-app-title" content="WORK FLOW" />
   <link rel="manifest" href="./manifest.webmanifest" />
   <link rel="apple-touch-icon" href="./icon-192.png" />
-  <title>업무 스케줄 보드</title>
+  <title>WORK FLOW · 업무 스케줄</title>
   <style>
     :root{
       --bg:#f6f7fb;--panel:#fff;--text:#172033;--muted:#778096;--line:#e7eaf0;--nav:#111827;
@@ -41,7 +41,10 @@
     .restore-link{border:0;background:#ecfdf5;color:#15803d;border-radius:8px;padding:5px 8px;font-size:11px;font-weight:900;margin-left:2px}.restore-link:hover{background:#dcfce7}.edited-at{color:#64748b;font-weight:750}.completed-summary{font-size:12px;color:#64748b;font-weight:750}
     .mobile-header{display:none}.mobile-nav{display:none}
     @media(max-width:1050px){.task{grid-template-columns:32px minmax(200px,1fr) 120px 100px 36px}.client{display:none}.stats{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:760px){.app{display:block}aside{display:none}main{padding:14px 14px 150px}.mobile-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.mobile-brand{border:0;background:transparent;padding:6px 2px;color:#0f172a;font-size:19px;font-weight:950;letter-spacing:-.7px}.mobile-brand:active{opacity:.65}.mobile-header-actions{display:flex;align-items:center;gap:6px}.mobile-logout,.mobile-notify{border:1px solid var(--line);background:#fff;color:#475569;border-radius:10px;padding:8px 10px;font-size:11px;font-weight:850}.mobile-notify.notify-toggle{width:auto;min-width:92px;height:38px;padding:0 10px;color:#475569}.mobile-notify.notify-toggle svg{width:18px;height:18px}.mobile-notify.notify-toggle .notify-label{font-size:11px}.mobile-notify.notify-toggle.on{background:#fffbeb;border-color:#fde68a;color:#475569}.topbar{align-items:flex-start}.topbar h1{font-size:22px}.actions .btn.primary{display:none}.stats{gap:9px}.stat{padding:14px;border-radius:15px}.stat .num{font-size:25px}.panel-head{align-items:stretch;flex-direction:column}.filters{display:grid;grid-template-columns:1fr 1fr}.search{min-width:0;grid-column:1/-1}.task{grid-template-columns:28px minmax(0,1fr) 88px 34px;gap:8px}.task .due{font-size:10px}.status,.client{display:none}.mobile-add{display:block;bottom:78px}.grid2{grid-template-columns:1fr}.calendar-wrap{padding:8px}.day{min-height:82px;padding:5px}.cal-task{font-size:9px}.desktop-only{display:none}.topbar .actions{gap:5px}.topbar .btn{padding:8px 9px;font-size:11px}.mobile-nav{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;left:0;right:0;bottom:0;z-index:14;background:rgba(255,255,255,.97);border-top:1px solid var(--line);padding:7px 8px calc(7px + env(safe-area-inset-bottom));box-shadow:0 -8px 25px rgba(15,23,42,.08)}.mobile-nav .nav{border:0;background:transparent;color:#64748b;border-radius:10px;padding:7px 3px;font-size:10px;font-weight:850;text-align:center}.mobile-nav .nav span{display:block;font-size:18px;line-height:1.2;margin-bottom:2px}.mobile-nav .nav.active{background:#eff6ff;color:#2563eb}.restore-link{font-size:10px;padding:4px 7px}.detail-grid{grid-template-columns:1fr}}
+    .field-help{display:block;margin-top:6px;color:#94a3b8;font-size:10px;line-height:1.4}.field input.invalid{border-color:#ef4444;background:#fef2f2}
+    .password-msg{display:none;margin-bottom:14px;padding:10px 12px;border-radius:10px;font-size:12px;line-height:1.5}.password-msg.show{display:block}.password-msg.error{background:#fef2f2;border:1px solid #fecaca;color:#b91c1c}.password-msg.success{background:#f0fdf4;border:1px solid #bbf7d0;color:#15803d}
+    .auth-forgot{display:block;margin:12px auto 0;border:0;background:transparent;color:#2563eb;font-size:12px;font-weight:850;padding:5px 8px}.auth-forgot:hover{text-decoration:underline}.forced-password-note{margin-bottom:14px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;border-radius:11px;padding:11px 12px;font-size:12px;line-height:1.55}.admin-note{background:#eff6ff;border:1px solid #bfdbfe;color:#1e40af;border-radius:11px;padding:11px 12px;font-size:12px;line-height:1.55;margin-bottom:14px}.admin-create{padding:18px 22px;border-bottom:1px solid var(--line)}.admin-create-grid{display:grid;grid-template-columns:1fr 1fr auto;gap:9px;align-items:end}.admin-list{padding:12px 16px 20px}.admin-user{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:13px;padding:12px 13px;margin:8px 0;background:#fff}.admin-user-email{font-weight:900;font-size:13px;word-break:break-all}.admin-user-meta{font-size:10px;color:#94a3b8;margin-top:5px;line-height:1.5}.admin-user-status{display:inline-block;margin-top:6px;padding:3px 7px;border-radius:999px;background:#f1f5f9;color:#64748b;font-size:10px;font-weight:850}.admin-user-status.must{background:#fff7ed;color:#c2410c}.admin-empty{padding:28px;text-align:center;color:#94a3b8;font-size:12px}#passwordModal{z-index:60}#adminModal{z-index:45}#recoveryModal{z-index:70}
+    @media(max-width:760px){.app{display:block}aside{display:none}main{padding:14px 14px 150px}.mobile-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.mobile-brand{border:0;background:transparent;padding:6px 2px;color:#0f172a;font-size:19px;font-weight:950;letter-spacing:-.7px}.mobile-brand:active{opacity:.65}.mobile-header-actions{display:flex;align-items:center;gap:6px}.mobile-logout,.mobile-notify{border:1px solid var(--line);background:#fff;color:#475569;border-radius:10px;padding:8px 10px;font-size:11px;font-weight:850}.mobile-notify.notify-toggle{width:auto;min-width:92px;height:38px;padding:0 10px;color:#475569}.mobile-notify.notify-toggle svg{width:18px;height:18px}.mobile-notify.notify-toggle .notify-label{font-size:11px}.mobile-notify.notify-toggle.on{background:#fffbeb;border-color:#fde68a;color:#475569}.topbar{align-items:flex-start}.topbar h1{font-size:22px}.actions .btn.primary{display:none}.stats{gap:9px}.stat{padding:14px;border-radius:15px}.stat .num{font-size:25px}.panel-head{align-items:stretch;flex-direction:column}.filters{display:grid;grid-template-columns:1fr 1fr}.search{min-width:0;grid-column:1/-1}.task{grid-template-columns:28px minmax(0,1fr) 88px 34px;gap:8px}.task .due{font-size:10px}.status,.client{display:none}.mobile-add{display:block;bottom:78px}.grid2{grid-template-columns:1fr}.calendar-wrap{padding:8px}.day{min-height:82px;padding:5px}.cal-task{font-size:9px}.desktop-only{display:none}.topbar .actions{gap:5px}.topbar .btn{padding:8px 9px;font-size:11px}.mobile-nav{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;left:0;right:0;bottom:0;z-index:14;background:rgba(255,255,255,.97);border-top:1px solid var(--line);padding:7px 8px calc(7px + env(safe-area-inset-bottom));box-shadow:0 -8px 25px rgba(15,23,42,.08)}.mobile-nav .nav{border:0;background:transparent;color:#64748b;border-radius:10px;padding:7px 3px;font-size:10px;font-weight:850;text-align:center}.mobile-nav .nav span{display:block;font-size:18px;line-height:1.2;margin-bottom:2px}.mobile-nav .nav.active{background:#eff6ff;color:#2563eb}.restore-link{font-size:10px;padding:4px 7px}.detail-grid{grid-template-columns:1fr}.admin-create-grid{grid-template-columns:1fr}.admin-user{grid-template-columns:1fr}.admin-user .btn{width:100%}}
   </style>
 </head>
 <body>
@@ -49,14 +52,14 @@
   <div class="auth-card">
     <div class="auth-logo">WORK FLOW</div>
     <div class="auth-sub">개인별 업무 스케줄 관리<br>로그인한 계정의 일정만 안전하게 불러옵니다.</div>
-    <div class="auth-tabs"><button id="loginTab" class="active">로그인</button><button id="signupTab">회원가입</button></div>
     <div class="auth-error" id="authError"></div>
     <form id="authForm">
-      <div class="field"><label>이메일</label><input id="authEmail" type="email" required placeholder="name@company.com"></div>
-      <div class="field"><label>비밀번호</label><input id="authPassword" type="password" required minlength="6" placeholder="6자 이상"></div>
+      <div class="field"><label>이메일</label><input id="authEmail" type="email" required placeholder="name@company.com" autocomplete="username"></div>
+      <div class="field"><label>비밀번호</label><input id="authPassword" type="password" required minlength="6" placeholder="비밀번호 입력" autocomplete="current-password"></div>
       <button class="btn primary" style="width:100%;padding:12px" id="authSubmit" type="submit">로그인</button>
     </form>
-    <div class="auth-help">회사 직원별로 서로 다른 계정을 사용하면 각자의 일정이 분리됩니다. 같은 계정으로 PC/휴대폰에서 로그인하면 같은 기록을 볼 수 있습니다.</div>
+    <button class="auth-forgot" id="forgotPasswordBtn" type="button">비밀번호를 잊으셨나요?</button>
+    <div class="auth-help">WORK FLOW 계정은 관리자가 발급합니다. 임시 비밀번호로 처음 로그인하면 새 비밀번호(8자 이상)로 반드시 변경해야 합니다.</div>
     <div class="auth-config hidden" id="configNotice">Supabase 연결 정보가 아직 없습니다. <b>config.js</b>에 프로젝트 URL과 anon key를 입력해야 로그인이 작동합니다.</div>
   </div>
 </div>
@@ -83,6 +86,9 @@
         <button class="btn desktop-only" id="exportBtn">백업</button>
         <button class="btn desktop-only" id="importBtn">불러오기</button>
         <button class="btn" id="refreshBtn" type="button" title="최신 업무 다시 불러오기">↻ 새로고침</button>
+        <button class="btn" id="testNotifyBtn" type="button" title="등록된 휴대폰/PC로 즉시 테스트 알림 보내기">🔔 테스트 알림</button>
+        <button class="btn hidden" id="adminUsersBtn" type="button" title="사용자 계정 발급 및 임시 비밀번호 재설정">👤 사용자 관리</button>
+        <button class="btn" id="changePasswordBtn" type="button" title="현재 비밀번호 확인 후 새 비밀번호로 변경">🔐 비밀번호 변경</button>
         <button class="btn" id="icsBtn">캘린더 내보내기</button>
         <button class="btn primary" id="addBtn">＋ 업무 추가</button>
       </div>
@@ -129,6 +135,7 @@
         <div class="field"><label>업무 구분</label><select id="taskCategory"></select></div>
         <div class="field"><label>거래처 / 업체</label><input id="taskClient" placeholder="예: ABC Trading"></div>
         <div class="field"><label>마감일시 *</label><input id="taskDue" type="datetime-local" required></div>
+        <div class="field"><label>시간 직접 입력</label><input id="taskTimeManual" type="text" inputmode="numeric" maxlength="5" placeholder="예: 09:30 / 1430"><small class="field-help">시간 선택 대신 직접 입력해도 됩니다. (24시간 기준)</small></div>
         <div class="field"><label>우선순위</label><select id="taskPriority"><option>긴급</option><option>높음</option><option selected>보통</option></select></div>
         <div class="field"><label>상태</label><select id="taskStatus"><option value="todo">진행 예정</option><option value="wait">회신/대기</option><option value="done">완료</option></select></div>
         <div class="field"><label>반복</label><select id="taskRepeat"><option value="none">반복 없음</option><option value="daily">매일</option><option value="weekly">매주</option><option value="monthly">매월</option></select></div>
@@ -170,13 +177,63 @@
   </div>
 </div>
 
+<div class="modal" id="passwordModal">
+  <div class="modal-card" style="width:min(480px,100%)">
+    <div class="modal-head"><h2 id="passwordModalTitle">비밀번호 변경</h2><button class="x" id="closePasswordModal" type="button">×</button></div>
+    <form class="form" id="passwordForm" autocomplete="off">
+      <div class="forced-password-note hidden" id="forcedPasswordNote"><b>첫 로그인 보안 설정</b><br>관리자가 발급한 임시 비밀번호는 한 번만 사용합니다. 새 비밀번호로 변경해야 업무 화면을 사용할 수 있습니다.</div>
+      <div class="password-msg error" id="passwordError"></div>
+      <div class="password-msg success" id="passwordSuccess"></div>
+      <div class="field"><label>현재 비밀번호 *</label><input id="currentPassword" type="password" required minlength="6" autocomplete="current-password" placeholder="현재 또는 임시 비밀번호"></div>
+      <div class="field"><label>새 비밀번호 *</label><input id="newPassword" type="password" required minlength="8" autocomplete="new-password" placeholder="8자 이상 새 비밀번호"><small class="field-help">보안을 위해 새 비밀번호는 <b>8자 이상</b> 입력해 주세요. 현재 비밀번호와는 달라야 합니다.</small></div>
+      <div class="field"><label>새 비밀번호 확인 *</label><input id="confirmPassword" type="password" required minlength="8" autocomplete="new-password" placeholder="8자 이상 새 비밀번호 다시 입력"></div>
+      <div class="form-actions"><button type="button" class="btn" id="cancelPasswordModal">취소</button><button type="submit" class="btn primary" id="passwordSubmitBtn">비밀번호 변경</button></div>
+    </form>
+  </div>
+</div>
+
+<div class="modal" id="recoveryModal">
+  <div class="modal-card" style="width:min(480px,100%)">
+    <div class="modal-head"><h2>WORK FLOW 비밀번호 재설정</h2><button class="x" id="closeRecoveryModal" type="button">×</button></div>
+    <form class="form" id="recoveryForm" autocomplete="off">
+      <div class="forced-password-note"><b>관리자 계정 복구</b><br>새 비밀번호를 8자 이상 입력해 주세요. 변경이 완료되면 새 비밀번호로 다시 로그인합니다.</div>
+      <div class="password-msg error" id="recoveryError"></div>
+      <div class="password-msg success" id="recoverySuccess"></div>
+      <div class="field"><label>새 비밀번호 *</label><input id="recoveryNewPassword" type="password" required minlength="8" autocomplete="new-password" placeholder="8자 이상 새 비밀번호"></div>
+      <div class="field"><label>새 비밀번호 확인 *</label><input id="recoveryConfirmPassword" type="password" required minlength="8" autocomplete="new-password" placeholder="새 비밀번호 다시 입력"></div>
+      <div class="form-actions"><button type="submit" class="btn primary" id="recoverySubmitBtn">새 비밀번호 설정</button></div>
+    </form>
+  </div>
+</div>
+
+<div class="modal" id="adminModal">
+  <div class="modal-card" style="width:min(780px,100%)">
+    <div class="modal-head"><h2>사용자 관리</h2><button class="x" id="closeAdminModal" type="button">×</button></div>
+    <div class="admin-create">
+      <div class="admin-note"><b>관리자 전용</b> · 새 사용자는 이메일과 임시 비밀번호(8자 이상)로 발급됩니다. 사용자는 첫 로그인 직후 새 비밀번호로 강제 변경됩니다.</div>
+      <form id="adminCreateForm">
+        <div class="admin-create-grid">
+          <div class="field" style="margin:0"><label>사용자 이메일</label><input id="adminNewEmail" type="email" required placeholder="employee@company.com" autocomplete="off"></div>
+          <div class="field" style="margin:0"><label>임시 비밀번호 (8자 이상)</label><input id="adminTempPassword" type="password" required minlength="8" placeholder="예: Work@5832" autocomplete="new-password"></div>
+          <button class="btn primary" id="adminCreateBtn" type="submit">계정 발급</button>
+        </div>
+      </form>
+    </div>
+    <div class="admin-list">
+      <div class="panel-title" style="margin:2px 2px 8px">등록 사용자</div>
+      <div id="adminUsersList"><div class="admin-empty">사용자 목록을 불러오는 중…</div></div>
+    </div>
+  </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="./config.js"></script>
 <script>
 const CATEGORIES=['무역','견적','발주','선적','통관','입고','정산','기타'];
 const OLD_KEY='workflow_tasks_v1';
 const $=s=>document.querySelector(s); const $$=s=>document.querySelectorAll(s);
-let tasks=[]; let currentView='dashboard'; let calCursor=new Date(); let notified={}; let currentUser=null; let authMode='login'; let pushEnabled=false; let realtimeChannel=null; let realtimeReloadTimer=null;
+const ADMIN_EMAIL='sk888sk9999@gmail.com';
+let tasks=[]; let currentView='dashboard'; let calCursor=new Date(); let notified={}; let currentUser=null; let pushEnabled=false; let realtimeChannel=null; let realtimeReloadTimer=null; let forcedPasswordChange=false; let recoveryPasswordChange=false; let appDataLoaded=false;
 const configured=Boolean(window.WORKFLOW_CONFIG?.supabaseUrl && window.WORKFLOW_CONFIG?.supabaseAnonKey);
 const db=configured ? window.supabase.createClient(window.WORKFLOW_CONFIG.supabaseUrl,window.WORKFLOW_CONFIG.supabaseAnonKey) : null;
 const VAPID_PUBLIC_KEY='BDanezujmW4nK0ChsIvlMNbX9lgm-9sLjQUdnbch6FSRwMqH_F7E1Ak9riyZvxuWBgkSes1OmGV7fs-BSczPHMw';
@@ -229,7 +286,7 @@ function render(){
 }
 function openModal(t){
   $('#modalTitle').textContent=t?'업무 수정':'업무 추가';$('#taskId').value=t?.id||'';$('#taskName').value=t?.name||'';$('#taskCategory').value=t?.category||'무역';$('#taskClient').value=t?.client||'';
-  let due=t?new Date(t.due):new Date(Date.now()+3600000);due.setMinutes(due.getMinutes()-due.getTimezoneOffset());$('#taskDue').value=due.toISOString().slice(0,16);$('#taskPriority').value=t?.priority||'보통';$('#taskStatus').value=t?.status||'todo';$('#taskRepeat').value=t?.repeat||'none';$('#taskReminder').value=String(t?.reminder??30);$('#taskMemo').value=t?.memo||'';$('#taskModal').classList.add('show');setTimeout(()=>$('#taskName').focus(),50)
+  let due=t?new Date(t.due):new Date(Date.now()+3600000);due.setMinutes(due.getMinutes()-due.getTimezoneOffset());let dueLocal=due.toISOString().slice(0,16);$('#taskDue').value=dueLocal;$('#taskTimeManual').value=dueLocal.slice(11,16);$('#taskTimeManual').classList.remove('invalid');$('#taskPriority').value=t?.priority||'보통';$('#taskStatus').value=t?.status||'todo';$('#taskRepeat').value=t?.repeat||'none';$('#taskReminder').value=String(t?.reminder??30);$('#taskMemo').value=t?.memo||'';$('#taskModal').classList.add('show');setTimeout(()=>$('#taskName').focus(),50)
 }
 function closeModal(){$('#taskModal').classList.remove('show')}
 function fmtFullDate(v){if(!v)return '-';let d=new Date(v);if(Number.isNaN(d.getTime()))return '-';return d.toLocaleString('ko-KR',{year:'numeric',month:'long',day:'numeric',weekday:'short',hour:'2-digit',minute:'2-digit'})}
@@ -331,18 +388,162 @@ async function disablePush(silent=false){
   if(!silent)toast('이 기기의 업무 알림을 껐습니다.');
 }
 async function toggleNotify(){if(pushEnabled)await disablePush(false);else await enableNotify()}
+async function sendTestNotification(){
+  if(!currentUser){toast('로그인 후 테스트할 수 있습니다.');return}
+  if(!pushEnabled){toast('먼저 이 기기의 알림을 켜주세요.');return}
+  const b=$('#testNotifyBtn');if(!b||b.disabled)return;const old=b.textContent;b.disabled=true;b.textContent='🔔 보내는 중…';
+  try{
+    const {data,error}=await db.functions.invoke('send-test-notification',{body:{}});
+    if(error)throw error;
+    const delivered=Number(data?.delivered||0),registered=Number(data?.registered||0);
+    if(delivered>0)toast('테스트 알림을 보냈습니다. 휴대폰/PC를 확인해 주세요.');
+    else if(registered===0)toast('등록된 알림 기기가 없습니다. 먼저 알림을 켜주세요.');
+    else toast('테스트 알림 전송에 실패했습니다. 브라우저/Windows 알림 설정을 확인해 주세요.');
+  }catch(err){console.error(err);toast('테스트 알림을 보내지 못했습니다. 잠시 후 다시 시도해 주세요.')}
+  finally{b.disabled=false;b.textContent=old}
+}
+function normalizeManualTime(value){
+  let v=String(value||'').trim();if(!v)return null;
+  let h,m;
+  if(/^\d{1,2}:\d{1,2}$/.test(v)){[h,m]=v.split(':').map(Number)}
+  else{let d=v.replace(/\D/g,'');if(d.length<=2){h=Number(d);m=0}else if(d.length===3){h=Number(d.slice(0,1));m=Number(d.slice(1))}else if(d.length===4){h=Number(d.slice(0,2));m=Number(d.slice(2))}else return null}
+  if(!Number.isInteger(h)||!Number.isInteger(m)||h<0||h>23||m<0||m>59)return null;
+  return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`;
+}
+function buildDueISO(){
+  const base=$('#taskDue').value;if(!base)return null;
+  const manual=$('#taskTimeManual').value.trim();
+  const normalized=normalizeManualTime(manual);
+  if(manual&&!normalized)return null;
+  const datePart=base.slice(0,10),timePart=normalized||base.slice(11,16);
+  if(!datePart||!timePart)return null;
+  const d=new Date(`${datePart}T${timePart}`);
+  return Number.isNaN(d.getTime())?null:d.toISOString();
+}
+function syncManualTimeFromDue(){const v=$('#taskDue').value;if(v&&v.includes('T')){$('#taskTimeManual').value=v.slice(11,16);$('#taskTimeManual').classList.remove('invalid')}}
+function syncDueFromManual(){const el=$('#taskTimeManual'),normalized=normalizeManualTime(el.value);if(!el.value.trim()){el.classList.remove('invalid');return true}if(!normalized){el.classList.add('invalid');return false}el.value=normalized;el.classList.remove('invalid');const base=$('#taskDue').value;if(base){$('#taskDue').value=`${base.slice(0,10)}T${normalized}`}return true}
 function checkNotifications(){if(pushEnabled||!('Notification'in window)||Notification.permission!=='granted')return;let now=Date.now();tasks.filter(t=>t.status!=='done').forEach(t=>{let d=new Date(t.due).getTime(),mins=Number(t.reminder||0),alarm=d-mins*60000;if(now>=alarm&&now<d+60000&&!notified[t.id]){new Notification('업무 일정 알림',{body:`${t.name}\n${t.client||t.category} · ${fmtDue(new Date(t.due))}`});notified[t.id]=true}})}
+function setPasswordMessage(type,msg=''){
+  const error=$('#passwordError'),success=$('#passwordSuccess');
+  error.textContent=type==='error'?msg:'';success.textContent=type==='success'?msg:'';
+  error.classList.toggle('show',type==='error'&&Boolean(msg));success.classList.toggle('show',type==='success'&&Boolean(msg));
+}
+function isAdminUser(user=currentUser){return Boolean(user?.email)&&String(user.email).toLowerCase()===ADMIN_EMAIL}
+function updateAdminUI(){const b=$('#adminUsersBtn');if(b)b.classList.toggle('hidden',!isAdminUser())}
+function openPasswordModal(forced=false){
+  if(!currentUser){toast('로그인 후 이용해 주세요.');return}
+  forcedPasswordChange=Boolean(forced);
+  $('#passwordForm').reset();setPasswordMessage('', '');$('#passwordSubmitBtn').disabled=false;$('#passwordSubmitBtn').textContent=forced?'새 비밀번호로 변경':'비밀번호 변경';
+  $('#passwordModalTitle').textContent=forced?'첫 로그인 비밀번호 변경':'비밀번호 변경';
+  $('#forcedPasswordNote').classList.toggle('hidden',!forced);
+  $('#closePasswordModal').classList.toggle('hidden',forced);$('#cancelPasswordModal').classList.remove('hidden');$('#cancelPasswordModal').textContent=forced?'로그아웃':'취소';
+  $('#passwordModal').classList.add('show');
+  setTimeout(()=>$('#currentPassword').focus(),80);
+}
+function closePasswordModal(force=false){
+  if(forcedPasswordChange&&!force)return;
+  $('#passwordModal').classList.remove('show');$('#passwordForm').reset();setPasswordMessage('', '');$('#cancelPasswordModal').textContent='취소';forcedPasswordChange=false;
+}
+async function handlePasswordCancel(){if(forcedPasswordChange){await disablePush(true);await db?.auth.signOut();leaveApp();return}closePasswordModal(false)}
+async function invokeUserAdmin(body){
+  if(!db)throw new Error('Supabase 연결 정보가 없습니다.');
+  const {data,error}=await db.functions.invoke('workflow-user-admin',{body});
+  if(error){let detail=data;try{if(!detail&&error?.context?.clone)detail=await error.context.clone().json()}catch{}console.error('workflow-user-admin',error,detail);throw new Error(detail?.error||error.message||'요청을 처리하지 못했습니다.');}
+  if(data?.error)throw new Error(data.error);
+  return data||{};
+}
+function passwordErrorMessage(code){return ({wrong_current_password:'현재 비밀번호가 맞지 않습니다. 다시 확인해 주세요.',password_too_short:'보안을 위해 새 비밀번호는 8자 이상 입력해 주세요.',same_password:'새 비밀번호는 현재 비밀번호와 다르게 입력해 주세요.',forbidden:'관리자 권한이 없습니다.'})[code]||code||'비밀번호 변경에 실패했습니다.'}
+async function changePassword(e){
+  e.preventDefault();
+  if(!db||!currentUser?.email){setPasswordMessage('error','로그인 정보를 확인할 수 없습니다. 다시 로그인해 주세요.');return}
+  const current=$('#currentPassword').value,newPw=$('#newPassword').value,confirm=$('#confirmPassword').value;
+  setPasswordMessage('', '');
+  if(current.length<6){setPasswordMessage('error','현재 비밀번호를 입력해 주세요.');$('#currentPassword').focus();return}
+  if(newPw.length<8){setPasswordMessage('error','보안을 위해 새 비밀번호는 8자 이상 입력해 주세요.');$('#newPassword').focus();return}
+  if(newPw!==confirm){setPasswordMessage('error','새 비밀번호 확인이 일치하지 않습니다.');$('#confirmPassword').focus();return}
+  if(current===newPw){setPasswordMessage('error','새 비밀번호는 현재 비밀번호와 다르게 입력해 주세요.');$('#newPassword').focus();return}
+  const btn=$('#passwordSubmitBtn'),wasForced=forcedPasswordChange;btn.disabled=true;btn.textContent='확인 중…';
+  try{
+    btn.textContent='변경 중…';
+    await invokeUserAdmin({action:'change_own_password',current_password:current,new_password:newPw});
+    const {data:refreshed}=await db.auth.refreshSession();if(refreshed?.user)currentUser=refreshed.user;
+    setPasswordMessage('success',wasForced?'새 비밀번호 설정이 완료되었습니다. 업무 화면을 불러옵니다.':'비밀번호가 변경되었습니다. 다음 로그인부터 새 비밀번호를 사용하세요.');
+    $('#currentPassword').value='';$('#newPassword').value='';$('#confirmPassword').value='';toast('비밀번호를 변경했습니다.');
+    if(wasForced){setTimeout(async()=>{closePasswordModal(true);await finishEnterApp()},650)}
+    else setTimeout(()=>{if($('#passwordModal').classList.contains('show'))closePasswordModal(true)},1000);
+  }catch(err){console.error(err);setPasswordMessage('error',passwordErrorMessage(err?.message))}
+  finally{btn.disabled=false;btn.textContent=wasForced?'새 비밀번호로 변경':'비밀번호 변경'}
+}
+function recoveryMessage(type,msg=''){const e=$('#recoveryError'),ok=$('#recoverySuccess');e.textContent=type==='error'?msg:'';ok.textContent=type==='success'?msg:'';e.classList.toggle('show',type==='error'&&Boolean(msg));ok.classList.toggle('show',type==='success'&&Boolean(msg))}
+function isRecoveryFlow(){const q=new URLSearchParams(location.search);return q.get('recovery')==='1'||location.hash.includes('type=recovery')}
+function openRecoveryModal(){recoveryPasswordChange=true;$('#recoveryForm').reset();recoveryMessage('', '');$('#recoverySubmitBtn').disabled=false;$('#recoverySubmitBtn').textContent='새 비밀번호 설정';$('#recoveryModal').classList.add('show');setTimeout(()=>$('#recoveryNewPassword').focus(),80)}
+function closeRecoveryModal(force=false){if(recoveryPasswordChange&&!force)return;$('#recoveryModal').classList.remove('show');$('#recoveryForm').reset();recoveryMessage('', '');recoveryPasswordChange=false}
+async function requestAdminRecovery(){
+  if(!db){showAuthError('Supabase 연결 정보를 확인해 주세요.');return}
+  const email=$('#authEmail').value.trim().toLowerCase();
+  if(email!==ADMIN_EMAIL){alert('일반 사용자의 비밀번호는 관리자에게 임시 비밀번호 재발급을 요청해 주세요.\n\n관리자가 임시 비밀번호로 초기화한 뒤 전달하면, 그 비밀번호로 로그인하여 새 비밀번호로 변경할 수 있습니다.');return}
+  if(!confirm('관리자 계정 비밀번호 재설정 메일을 받을까요?'))return;
+  const redirectTo=`${location.origin}/?recovery=1`;
+  try{const {error}=await db.auth.resetPasswordForEmail(ADMIN_EMAIL,{redirectTo});if(error)throw error;showAuthError('관리자 비밀번호 재설정 메일을 보냈습니다. 메일의 링크를 누르면 WORK FLOW에서 새 비밀번호를 설정할 수 있습니다.')}
+  catch(err){console.error(err);showAuthError('재설정 메일 전송에 실패했습니다. Supabase Redirect URL 설정을 확인해 주세요.')}
+}
+async function submitRecoveryPassword(e){
+  e.preventDefault();if(!db){recoveryMessage('error','Supabase 연결 정보를 확인해 주세요.');return}
+  const newPw=$('#recoveryNewPassword').value,confirmPw=$('#recoveryConfirmPassword').value;
+  if(newPw.length<8){recoveryMessage('error','보안을 위해 새 비밀번호는 8자 이상 입력해 주세요.');return}
+  if(newPw!==confirmPw){recoveryMessage('error','새 비밀번호 확인이 일치하지 않습니다.');return}
+  const {data:{user}}=await db.auth.getUser();if(!user||String(user.email||'').toLowerCase()!==ADMIN_EMAIL){recoveryMessage('error','관리자 계정 복구 링크가 아닙니다.');return}
+  const b=$('#recoverySubmitBtn');b.disabled=true;b.textContent='변경 중…';
+  try{const {error}=await db.auth.updateUser({password:newPw});if(error)throw error;recoveryMessage('success','비밀번호가 재설정되었습니다. 새 비밀번호로 다시 로그인해 주세요.');setTimeout(async()=>{await db.auth.signOut();currentUser=null;recoveryPasswordChange=false;$('#recoveryModal').classList.remove('show');history.replaceState({},'',location.pathname);$('#authScreen').classList.remove('hidden');$('#appRoot').classList.add('hidden');$('#authEmail').value=ADMIN_EMAIL;$('#authPassword').value='';showAuthError('비밀번호 재설정이 완료되었습니다. 새 비밀번호로 로그인해 주세요.');},900)}
+  catch(err){console.error(err);recoveryMessage('error','비밀번호 재설정에 실패했습니다. 재설정 링크를 다시 요청해 주세요.')}finally{b.disabled=false;b.textContent='새 비밀번호 설정'}
+}
 function showAuthError(msg=''){let el=$('#authError');el.textContent=msg;el.classList.toggle('show',Boolean(msg))}
-function setAuthMode(mode){authMode=mode;$('#loginTab').classList.toggle('active',mode==='login');$('#signupTab').classList.toggle('active',mode==='signup');$('#authSubmit').textContent=mode==='login'?'로그인':'회원가입';showAuthError('')}
-async function enterApp(user){currentUser=user;$('#authScreen').classList.add('hidden');$('#appRoot').classList.remove('hidden');$('#userEmail').textContent=user.email||'';await loadTasks();setupTaskRealtime();await syncExistingPush();const taskId=new URLSearchParams(location.search).get('task');if(taskId){goView('all');setTimeout(()=>showTaskDetail(taskId),80);history.replaceState({},'',location.pathname)}}
-function leaveApp(){teardownTaskRealtime();currentUser=null;tasks=[];$('#appRoot').classList.add('hidden');$('#authScreen').classList.remove('hidden');render()}
+async function finishEnterApp(){
+  if(!currentUser||appDataLoaded)return;
+  await loadTasks();appDataLoaded=true;setupTaskRealtime();await syncExistingPush();
+  const taskId=new URLSearchParams(location.search).get('task');if(taskId){goView('all');setTimeout(()=>showTaskDetail(taskId),80);history.replaceState({},'',location.pathname)}
+}
+async function enterApp(user){
+  currentUser=user;appDataLoaded=false;$('#authScreen').classList.add('hidden');$('#appRoot').classList.remove('hidden');$('#userEmail').textContent=user.email||'';updateAdminUI();
+  if(Boolean(user.app_metadata?.must_change_password)){tasks=[];render();openPasswordModal(true);return}
+  await finishEnterApp();
+}
+function leaveApp(){teardownTaskRealtime();currentUser=null;tasks=[];appDataLoaded=false;forcedPasswordChange=false;recoveryPasswordChange=false;$('#passwordModal').classList.remove('show');$('#recoveryModal').classList.remove('show');$('#adminModal').classList.remove('show');$('#appRoot').classList.add('hidden');$('#authScreen').classList.remove('hidden');updateAdminUI();render()}
+function fmtAdminDate(v){if(!v)return '로그인 기록 없음';const d=new Date(v);return Number.isNaN(d.getTime())?'':d.toLocaleString('ko-KR',{year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false})}
+function renderAdminUsers(users=[]){
+  const root=$('#adminUsersList');if(!root)return;
+  if(!users.length){root.innerHTML='<div class="admin-empty">등록된 사용자가 없습니다.</div>';return}
+  root.innerHTML=users.map(u=>{const admin=String(u.email||'').toLowerCase()===ADMIN_EMAIL;return `<div class="admin-user" data-user-id="${esc(u.id)}" data-user-email="${esc(u.email||'')}"><div><div class="admin-user-email">${esc(u.email||'이메일 없음')}${admin?' · 관리자':''}</div><div class="admin-user-meta">가입 ${esc(fmtAdminDate(u.created_at))} · 최근 로그인 ${esc(fmtAdminDate(u.last_sign_in_at))}</div><span class="admin-user-status ${u.must_change_password?'must':''}">${u.must_change_password?'임시 비밀번호 · 변경 필요':'비밀번호 설정 완료'}</span></div><button class="btn ${admin?'hidden':''}" type="button" data-admin-reset>임시 비밀번호 재발급</button></div>`}).join('');
+}
+async function loadAdminUsers(){
+  if(!isAdminUser())return;
+  $('#adminUsersList').innerHTML='<div class="admin-empty">사용자 목록을 불러오는 중…</div>';
+  try{const data=await invokeUserAdmin({action:'list'});renderAdminUsers(data.users||[])}catch(err){console.error(err);$('#adminUsersList').innerHTML='<div class="admin-empty">사용자 목록을 불러오지 못했습니다.</div>';toast('사용자 목록을 불러오지 못했습니다.')}
+}
+async function openAdminModal(){if(!isAdminUser()){toast('관리자만 사용할 수 있습니다.');return}$('#adminModal').classList.add('show');$('#adminCreateForm').reset();await loadAdminUsers()}
+function closeAdminModal(){$('#adminModal').classList.remove('show');$('#adminCreateForm').reset()}
+async function createManagedUser(e){
+  e.preventDefault();if(!isAdminUser())return;
+  const email=$('#adminNewEmail').value.trim().toLowerCase(),temp=$('#adminTempPassword').value;
+  if(temp.length<8){toast('임시 비밀번호는 8자 이상 입력해 주세요.');$('#adminTempPassword').focus();return}
+  const b=$('#adminCreateBtn');b.disabled=true;b.textContent='발급 중…';
+  try{await invokeUserAdmin({action:'create',email,temp_password:temp});toast(`${email} 계정을 발급했습니다.`);$('#adminCreateForm').reset();await loadAdminUsers()}
+  catch(err){console.error(err);const m=err?.message==='user_exists'?'이미 등록된 이메일입니다.':'계정 발급에 실패했습니다.';toast(m)}finally{b.disabled=false;b.textContent='계정 발급'}
+}
+async function resetManagedPassword(row){
+  if(!isAdminUser())return;const userId=row.dataset.userId,email=row.dataset.userEmail;
+  const temp=prompt(`${email}\n새 임시 비밀번호를 입력하세요. (8자 이상)`);if(temp===null)return;if(temp.length<8){alert('임시 비밀번호는 8자 이상이어야 합니다.');return}
+  if(!confirm(`${email} 계정의 비밀번호를 임시 비밀번호로 초기화할까요?\n사용자는 다음 로그인에서 새 비밀번호로 반드시 변경해야 합니다.`))return;
+  try{await invokeUserAdmin({action:'reset_password',user_id:userId,temp_password:temp});toast(`${email} 비밀번호를 초기화했습니다.`);await loadAdminUsers()}
+  catch(err){console.error(err);toast('비밀번호 초기화에 실패했습니다.')}
+}
 async function migrateOldLocalTasks(){let old=[];try{old=JSON.parse(localStorage.getItem(OLD_KEY)||'[]')}catch{}if(!Array.isArray(old)||!old.length)return;for(const x of old){const t={...x,id:crypto.randomUUID?.()||uid()};try{await upsertTask(t)}catch{return}}localStorage.removeItem(OLD_KEY);toast(`기존 일정 ${old.length}개를 계정으로 옮겼습니다.`);await loadTasks()}
 
 fillCategories();$('#todayText').textContent=new Date().toLocaleDateString('ko-KR',{year:'numeric',month:'long',day:'numeric',weekday:'long'});render();setInterval(checkNotifications,30000);
-$('#loginTab').onclick=()=>setAuthMode('login');$('#signupTab').onclick=()=>setAuthMode('signup');
-$('#authForm').onsubmit=async e=>{e.preventDefault();if(!db){showAuthError('Supabase 연결 정보가 필요합니다. config.js를 설정해 주세요.');return}showAuthError('');let email=$('#authEmail').value.trim(),password=$('#authPassword').value;$('#authSubmit').disabled=true;try{if(authMode==='login'){const {data,error}=await db.auth.signInWithPassword({email,password});if(error)throw error;await enterApp(data.user);await migrateOldLocalTasks()}else{const {data,error}=await db.auth.signUp({email,password});if(error)throw error;if(data.session){await enterApp(data.user)}else{showAuthError('가입 확인 메일을 보냈습니다. 이메일 인증 후 로그인해 주세요.')}}}catch(err){showAuthError(err.message||'인증에 실패했습니다.')}finally{$('#authSubmit').disabled=false}}
+$('#authForm').onsubmit=async e=>{e.preventDefault();if(!db){showAuthError('Supabase 연결 정보가 필요합니다. config.js를 설정해 주세요.');return}showAuthError('');const email=$('#authEmail').value.trim(),password=$('#authPassword').value;$('#authSubmit').disabled=true;try{const {data,error}=await db.auth.signInWithPassword({email,password});if(error)throw error;await enterApp(data.user);if(!data.user?.app_metadata?.must_change_password)await migrateOldLocalTasks()}catch(err){showAuthError('이메일 또는 비밀번호를 확인해 주세요.')}finally{$('#authSubmit').disabled=false}}
+$('#forgotPasswordBtn').onclick=requestAdminRecovery;
 $$('[data-logout]').forEach(b=>b.onclick=async()=>{await disablePush(true);await db?.auth.signOut();leaveApp()});
-$('#taskForm').onsubmit=async e=>{e.preventDefault();let id=$('#taskId').value;let old=id?tasks.find(t=>t.id===id):null;let obj={id:id||uid(),name:$('#taskName').value.trim(),category:$('#taskCategory').value,client:$('#taskClient').value.trim(),due:new Date($('#taskDue').value).toISOString(),priority:$('#taskPriority').value,status:$('#taskStatus').value,repeat:$('#taskRepeat').value,reminder:Number($('#taskReminder').value),memo:$('#taskMemo').value.trim(),createdAt:old?.createdAt||new Date().toISOString(),updatedAt:id?new Date().toISOString():null,completedAt:$('#taskStatus').value==='done'?(old?.completedAt||new Date().toISOString()):null};if(id){let i=tasks.findIndex(t=>t.id===id);tasks[i]=obj}else tasks.push(obj);closeModal();render();try{await upsertTask(obj);toast('저장했습니다.')}catch{await loadTasks();toast('저장에 실패했습니다.')}}
+$('#taskForm').onsubmit=async e=>{e.preventDefault();let dueISO=buildDueISO();if(!dueISO){$('#taskTimeManual').classList.add('invalid');toast('시간은 09:30 또는 1430처럼 입력해 주세요.');$('#taskTimeManual').focus();return}syncDueFromManual();let id=$('#taskId').value;let old=id?tasks.find(t=>t.id===id):null;let obj={id:id||uid(),name:$('#taskName').value.trim(),category:$('#taskCategory').value,client:$('#taskClient').value.trim(),due:dueISO,priority:$('#taskPriority').value,status:$('#taskStatus').value,repeat:$('#taskRepeat').value,reminder:Number($('#taskReminder').value),memo:$('#taskMemo').value.trim(),createdAt:old?.createdAt||new Date().toISOString(),updatedAt:id?new Date().toISOString():null,completedAt:$('#taskStatus').value==='done'?(old?.completedAt||new Date().toISOString()):null};if(id){let i=tasks.findIndex(t=>t.id===id);tasks[i]=obj}else tasks.push(obj);closeModal();render();try{await upsertTask(obj);toast('저장했습니다.')}catch{await loadTasks();toast('저장에 실패했습니다.')}}
 [$('#addBtn'),$('#mobileAdd')].forEach(b=>b.onclick=()=>openModal());$('#closeModal').onclick=$('#cancelModal').onclick=closeModal;$('#taskModal').onclick=e=>{if(e.target===$('#taskModal'))closeModal()}
 $('#closeDetailModal').onclick=$('#detailCloseBtn').onclick=closeTaskDetail;$('#detailModal').onclick=e=>{if(e.target===$('#detailModal'))closeTaskDetail()};$('#closeStatModal').onclick=closeStatModal;$('#statModal').onclick=e=>{if(e.target===$('#statModal'))closeStatModal()};$$('[data-stat]').forEach(b=>b.onclick=()=>showStatModal(b.dataset.stat))
 $$('.task-list').forEach(list=>{list.onclick=e=>{let row=e.target.closest('.task');if(!row)return;let id=row.dataset.id;if(e.target.closest('[data-action="toggle"]')){e.stopPropagation();toggleTask(id)}else if(e.target.closest('[data-action="menu"]')){e.stopPropagation();showMenu(e.target.closest('[data-action="menu"]'),id)}else{showTaskDetail(id)}};list.onkeydown=e=>{let row=e.target.closest('.task');if(!row||e.target.closest('button'))return;if(e.key==='Enter'||e.key===' '){e.preventDefault();showTaskDetail(row.dataset.id)}}});
@@ -351,14 +552,14 @@ $$('.nav').forEach(b=>b.onclick=()=>goView(b.dataset.view));
 $$('[data-home]').forEach(el=>{el.onclick=()=>goView('dashboard');el.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();goView('dashboard')}}});
 ['dashSearch','dashCategory','allSearch','allCategory','doneSearch','doneCategory'].forEach(id=>$('#'+id).addEventListener(id.includes('Search')?'input':'change',render));
 $('#prevMonth').onclick=()=>{calCursor.setMonth(calCursor.getMonth()-1);renderCalendar()};$('#nextMonth').onclick=()=>{calCursor.setMonth(calCursor.getMonth()+1);renderCalendar()};$('#thisMonth').onclick=()=>{calCursor=new Date();renderCalendar()};$('#calendarGrid').onclick=e=>{let more=e.target.closest('[data-calendar-day]');if(more){e.preventDefault();e.stopPropagation();showCalendarDayTasks(more.dataset.calendarDay)}};
-$('#exportBtn').onclick=exportJSON;$('#importBtn').onclick=()=>$('#fileImport').click();$('#refreshBtn').onclick=manualRefresh;$('#icsBtn').onclick=exportICS;$('#notifyBtn').onclick=toggleNotify;$('#mobileNotifyBtn').onclick=toggleNotify;
+$('#exportBtn').onclick=exportJSON;$('#importBtn').onclick=()=>$('#fileImport').click();$('#refreshBtn').onclick=manualRefresh;$('#testNotifyBtn').onclick=sendTestNotification;$('#adminUsersBtn').onclick=openAdminModal;$('#adminCreateForm').onsubmit=createManagedUser;$('#adminUsersList').onclick=e=>{const b=e.target.closest('[data-admin-reset]');if(b)resetManagedPassword(b.closest('.admin-user'))};$('#closeAdminModal').onclick=closeAdminModal;$('#adminModal').onclick=e=>{if(e.target===$('#adminModal'))closeAdminModal()};$('#changePasswordBtn').onclick=()=>openPasswordModal(false);$('#passwordForm').onsubmit=changePassword;$('#closePasswordModal').onclick=()=>closePasswordModal(false);$('#cancelPasswordModal').onclick=handlePasswordCancel;$('#passwordModal').onclick=e=>{if(e.target===$('#passwordModal'))closePasswordModal(false)};$('#recoveryForm').onsubmit=submitRecoveryPassword;$('#closeRecoveryModal').onclick=()=>{if(confirm('비밀번호 재설정을 취소하고 로그인 화면으로 돌아갈까요?')){recoveryPasswordChange=false;closeRecoveryModal(true);db?.auth.signOut();history.replaceState({},'',location.pathname)}};$('#icsBtn').onclick=exportICS;$('#notifyBtn').onclick=toggleNotify;$('#mobileNotifyBtn').onclick=toggleNotify;$('#taskDue').addEventListener('input',syncManualTimeFromDue);$('#taskTimeManual').addEventListener('blur',syncDueFromManual);$('#taskTimeManual').addEventListener('input',()=>$('#taskTimeManual').classList.remove('invalid'));
 $('#fileImport').onchange=e=>{let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=async()=>{try{let data=JSON.parse(r.result);if(!Array.isArray(data))throw 0;for(const x of data){let t={...x,id:crypto.randomUUID?.()||uid(),createdAt:x.createdAt||new Date().toISOString(),updatedAt:x.updatedAt||null};await upsertTask(t)}await loadTasks();toast('백업을 현재 계정으로 불러왔습니다.')}catch{alert('백업을 불러오지 못했습니다.')}};r.readAsText(f)};
-document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if($('#detailModal').classList.contains('show')){closeTaskDetail();return}if($('#statModal').classList.contains('show')){closeStatModal();return}if($('#taskModal').classList.contains('show'))closeModal()});
+document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if($('#recoveryModal').classList.contains('show'))return;if($('#passwordModal').classList.contains('show')){closePasswordModal(false);return}if($('#adminModal').classList.contains('show')){closeAdminModal();return}if($('#detailModal').classList.contains('show')){closeTaskDetail();return}if($('#statModal').classList.contains('show')){closeStatModal();return}if($('#taskModal').classList.contains('show'))closeModal()});
 if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js').catch(err=>console.warn('sw register',err))}
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&currentUser){loadTasks();if(!realtimeChannel)setupTaskRealtime()}});window.addEventListener('online',()=>{if(currentUser){loadTasks();setupTaskRealtime()}});
 setNotifyUI();
 if(!configured){$('#configNotice').classList.remove('hidden')}
-if(db){db.auth.getSession().then(({data})=>{if(data.session?.user)enterApp(data.session.user)});db.auth.onAuthStateChange((event,session)=>{if(event==='SIGNED_OUT')leaveApp();else if(session?.user&&!currentUser)enterApp(session.user)})}
+if(db){db.auth.getSession().then(({data})=>{if(data.session?.user){if(isRecoveryFlow()){currentUser=data.session.user;$('#authScreen').classList.remove('hidden');$('#appRoot').classList.add('hidden');openRecoveryModal()}else enterApp(data.session.user)}});db.auth.onAuthStateChange((event,session)=>{if(event==='PASSWORD_RECOVERY'&&session?.user){currentUser=session.user;$('#authScreen').classList.remove('hidden');$('#appRoot').classList.add('hidden');openRecoveryModal();return}if(event==='SIGNED_OUT'){if(!recoveryPasswordChange)leaveApp()}else if(session?.user&&!currentUser&&!isRecoveryFlow())enterApp(session.user)})}
 </script>
 </body>
 </html>
