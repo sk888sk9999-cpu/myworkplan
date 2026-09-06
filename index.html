@@ -36,7 +36,7 @@
     .auth-logo{font-size:25px;font-weight:950;letter-spacing:-1px;margin-bottom:4px}.auth-sub{font-size:13px;color:var(--muted);margin-bottom:24px;line-height:1.6}
     .auth-tabs{display:grid;grid-template-columns:1fr 1fr;background:#f1f5f9;border-radius:11px;padding:4px;margin-bottom:18px}.auth-tabs button{border:0;background:transparent;padding:9px;border-radius:8px;font-weight:850;color:#64748b}.auth-tabs button.active{background:#fff;color:#0f172a;box-shadow:0 2px 8px rgba(15,23,42,.08)}
     .auth-error{display:none;background:#fef2f2;color:#b91c1c;border:1px solid #fecaca;border-radius:10px;padding:10px 12px;font-size:12px;margin-bottom:13px}.auth-error.show{display:block}
-    .auth-help{font-size:11px;color:#94a3b8;margin-top:12px;line-height:1.5}.auth-config{margin-top:16px;background:#fff7ed;color:#9a3412;border:1px solid #fed7aa;border-radius:11px;padding:11px 12px;font-size:12px;line-height:1.55}
+    .auth-help{font-size:11px;color:#94a3b8;margin-top:12px;line-height:1.5}.remember-email{display:flex;align-items:center;gap:8px;margin:10px 1px 14px;color:#64748b;font-size:12px;font-weight:750;cursor:pointer;user-select:none}.remember-email input{width:17px;height:17px;accent-color:#2563eb;cursor:pointer}.remember-email span{line-height:1.2}.auth-config{margin-top:16px;background:#fff7ed;color:#9a3412;border:1px solid #fed7aa;border-radius:11px;padding:11px 12px;font-size:12px;line-height:1.55}
     .userbox{padding:12px 10px 14px;border-top:1px solid #334155;margin-top:14px}.userbox .email{font-size:11px;color:#cbd5e1;word-break:break-all;margin-bottom:8px}.logout-btn{width:100%;border:1px solid #475569;background:#111827;color:#e5e7eb;border-radius:10px;padding:9px;font-weight:750}
     .sync-state{font-size:11px;color:#64748b;margin-left:8px}.hidden{display:none!important}
     .restore-link{border:0;background:#ecfdf5;color:#15803d;border-radius:8px;padding:5px 8px;font-size:11px;font-weight:900;margin-left:2px}.restore-link:hover{background:#dcfce7}.edited-at{color:#64748b;font-weight:750}.completed-summary{font-size:12px;color:#64748b;font-weight:750}
@@ -57,6 +57,7 @@
     <form id="authForm">
       <div class="field"><label>이메일</label><input id="authEmail" type="email" required placeholder="name@company.com" autocomplete="username"></div>
       <div class="field"><label>비밀번호</label><input id="authPassword" type="password" required minlength="6" placeholder="비밀번호 입력" autocomplete="current-password"></div>
+      <label class="remember-email"><input id="rememberEmail" type="checkbox"><span>이메일 저장</span></label>
       <button class="btn primary" style="width:100%;padding:12px" id="authSubmit" type="submit">로그인</button>
     </form>
     <button class="auth-forgot" id="forgotPasswordBtn" type="button">비밀번호를 잊으셨나요?</button>
@@ -263,6 +264,7 @@
 <script>
 const CATEGORIES=['무역','견적','발주','선적','통관','입고','정산','기타'];
 const OLD_KEY='workflow_tasks_v1';
+const REMEMBER_EMAIL_KEY='workflow_remembered_email_v1';
 const $=s=>document.querySelector(s); const $$=s=>document.querySelectorAll(s);
 const ADMIN_EMAIL='sk888sk9999@gmail.com';
 let tasks=[]; let currentView='dashboard'; let calCursor=new Date(); let notified={}; let currentUser=null; let pushEnabled=false; let realtimeChannel=null; let realtimeReloadTimer=null; let forcedPasswordChange=false; let recoveryPasswordChange=false; let appDataLoaded=false;
@@ -273,6 +275,8 @@ function isIOSDevice(){return /iphone|ipad|ipod/i.test(navigator.userAgent)}
 function isStandaloneApp(){return window.matchMedia?.('(display-mode: standalone)').matches || navigator.standalone===true}
 function urlBase64ToUint8Array(base64String){const padding='='.repeat((4-base64String.length%4)%4);const base64=(base64String+padding).replace(/-/g,'+').replace(/_/g,'/');const raw=atob(base64);return Uint8Array.from([...raw].map(c=>c.charCodeAt(0)))}
 
+function loadRememberedEmail(){let saved='';try{saved=localStorage.getItem(REMEMBER_EMAIL_KEY)||''}catch{}$('#authEmail').value=saved;$('#rememberEmail').checked=Boolean(saved)}
+function saveRememberedEmail(email){try{if($('#rememberEmail').checked&&email)localStorage.setItem(REMEMBER_EMAIL_KEY,email);else localStorage.removeItem(REMEMBER_EMAIL_KEY)}catch{}}
 function uid(){return crypto.randomUUID?.()||Date.now().toString(36)+Math.random().toString(36).slice(2,10)}
 function esc(s=''){return String(s??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
 function startDay(d=new Date()){return new Date(d.getFullYear(),d.getMonth(),d.getDate())}
@@ -601,7 +605,7 @@ async function enterApp(user){
   if(Boolean(user.app_metadata?.must_change_password)){tasks=[];render();openPasswordModal(true);return}
   await finishEnterApp();
 }
-function leaveApp(){teardownTaskRealtime();currentUser=null;tasks=[];appDataLoaded=false;forcedPasswordChange=false;recoveryPasswordChange=false;setAdminRequestBadge(0);$('#passwordModal').classList.remove('show');$('#recoveryModal').classList.remove('show');$('#forgotRequestModal').classList.remove('show');$('#adminModal').classList.remove('show');$('#appRoot').classList.add('hidden');$('#authScreen').classList.remove('hidden');updateAdminUI();render()}
+function leaveApp(){teardownTaskRealtime();currentUser=null;tasks=[];appDataLoaded=false;forcedPasswordChange=false;recoveryPasswordChange=false;setAdminRequestBadge(0);$('#passwordModal').classList.remove('show');$('#recoveryModal').classList.remove('show');$('#forgotRequestModal').classList.remove('show');$('#adminModal').classList.remove('show');$('#appRoot').classList.add('hidden');$('#authScreen').classList.remove('hidden');$('#authPassword').value='';loadRememberedEmail();updateAdminUI();render()}
 function fmtAdminDate(v){if(!v)return '로그인 기록 없음';const d=new Date(v);return Number.isNaN(d.getTime())?'':d.toLocaleString('ko-KR',{year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false})}
 function setAdminRequestBadge(count=0){
   const badge=$('#adminRequestBadge');if(!badge)return;
@@ -675,8 +679,9 @@ async function dismissResetRequest(row){
 }
 async function migrateOldLocalTasks(){let old=[];try{old=JSON.parse(localStorage.getItem(OLD_KEY)||'[]')}catch{}if(!Array.isArray(old)||!old.length)return;for(const x of old){const t={...x,id:crypto.randomUUID?.()||uid()};try{await upsertTask(t)}catch{return}}localStorage.removeItem(OLD_KEY);toast(`기존 일정 ${old.length}개를 계정으로 옮겼습니다.`);await loadTasks()}
 
+loadRememberedEmail();$('#rememberEmail').addEventListener('change',()=>{if(!$('#rememberEmail').checked){try{localStorage.removeItem(REMEMBER_EMAIL_KEY)}catch{}}});
 fillCategories();$('#todayText').textContent=new Date().toLocaleDateString('ko-KR',{year:'numeric',month:'long',day:'numeric',weekday:'long'});render();setInterval(checkNotifications,30000);setInterval(()=>{if(isAdminUser())refreshAdminRequestCount()},60000);
-$('#authForm').onsubmit=async e=>{e.preventDefault();if(!db){showAuthError('Supabase 연결 정보가 필요합니다. config.js를 설정해 주세요.');return}showAuthError('');const email=$('#authEmail').value.trim(),password=$('#authPassword').value;$('#authSubmit').disabled=true;try{const {data,error}=await db.auth.signInWithPassword({email,password});if(error)throw error;await enterApp(data.user);if(!data.user?.app_metadata?.must_change_password)await migrateOldLocalTasks()}catch(err){showAuthError('이메일 또는 비밀번호를 확인해 주세요.')}finally{$('#authSubmit').disabled=false}}
+$('#authForm').onsubmit=async e=>{e.preventDefault();if(!db){showAuthError('Supabase 연결 정보가 필요합니다. config.js를 설정해 주세요.');return}showAuthError('');const email=$('#authEmail').value.trim(),password=$('#authPassword').value;$('#authSubmit').disabled=true;try{const {data,error}=await db.auth.signInWithPassword({email,password});if(error)throw error;saveRememberedEmail(email);$('#authPassword').value='';await enterApp(data.user);if(!data.user?.app_metadata?.must_change_password)await migrateOldLocalTasks()}catch(err){showAuthError('이메일 또는 비밀번호를 확인해 주세요.')}finally{$('#authSubmit').disabled=false}}
 $('#forgotPasswordBtn').onclick=openForgotRequestModal;$('#forgotRequestForm').onsubmit=requestAdminRecovery;$('#closeForgotRequestModal').onclick=$('#cancelForgotRequestModal').onclick=closeForgotRequestModal;$('#forgotRequestModal').onclick=e=>{if(e.target===$('#forgotRequestModal'))closeForgotRequestModal()};
 $$('[data-logout]').forEach(b=>b.onclick=async()=>{await db?.auth.signOut();leaveApp()});
 $('#taskForm').onsubmit=async e=>{e.preventDefault();let dueISO=buildDueISO();if(!dueISO){$('#taskTimeManual').classList.add('invalid');toast('시간은 09:30 또는 1430처럼 입력해 주세요.');$('#taskTimeManual').focus();return}syncDueFromManual();let id=$('#taskId').value;let old=id?tasks.find(t=>t.id===id):null;let obj={id:id||uid(),name:$('#taskName').value.trim(),category:$('#taskCategory').value,client:$('#taskClient').value.trim(),due:dueISO,priority:$('#taskPriority').value,status:$('#taskStatus').value,repeat:$('#taskRepeat').value,reminder:Number($('#taskReminder').value),memo:$('#taskMemo').value.trim(),createdAt:old?.createdAt||new Date().toISOString(),updatedAt:id?new Date().toISOString():null,completedAt:$('#taskStatus').value==='done'?(old?.completedAt||new Date().toISOString()):null};if(id){let i=tasks.findIndex(t=>t.id===id);tasks[i]=obj}else tasks.push(obj);closeModal();render();try{await upsertTask(obj);toast('저장했습니다.')}catch{await loadTasks();toast('저장에 실패했습니다.')}}
