@@ -343,7 +343,7 @@ function updateBulkDeleteCount(){const checked=$$('#bulkTaskList [data-bulk-chec
 function openBulkDeleteModal(){renderBulkDeleteList();$('#bulkDeleteModal').classList.add('show')}
 function closeBulkDeleteModal(){$('#bulkDeleteModal').classList.remove('show')}
 async function deleteSelectedTasks(){
-  const ids=$$('#bulkTaskList [data-bulk-check]:checked').map(x=>x.value).filter(Boolean);if(!ids.length)return;
+  const ids=Array.from($$('#bulkTaskList [data-bulk-check]:checked'),x=>x.value).filter(Boolean);if(!ids.length)return;
   if(!confirm(`선택한 업무 ${ids.length}건을 모두 삭제할까요?\n\n삭제 후에는 복구할 수 없습니다.`))return;
   const b=$('#bulkDeleteBtn'),old=b.textContent;b.disabled=true;b.textContent='삭제 중…';
   try{
@@ -500,9 +500,24 @@ function closePasswordModal(force=false){
 async function handlePasswordCancel(){if(forcedPasswordChange){await db?.auth.signOut();leaveApp();return}closePasswordModal(false)}
 async function invokeUserAdmin(body){
   if(!db)throw new Error('Supabase 연결 정보가 없습니다.');
-  const {data,error}=await db.functions.invoke('workflow-user-admin',{body});
-  if(error){let detail=data;try{if(!detail&&error?.context?.clone)detail=await error.context.clone().json()}catch{}console.error('workflow-user-admin',error,detail);throw new Error(detail?.error||error.message||'요청을 처리하지 못했습니다.');}
-  if(data?.error)throw new Error(data.error);
+  let {data:{session},error:sessionError}=await db.auth.getSession();
+  if(sessionError)throw new Error('session_error');
+  if(!session?.access_token){
+    const refreshed=await db.auth.refreshSession();
+    if(refreshed.error||!refreshed.data?.session?.access_token)throw new Error('login_required');
+    session=refreshed.data.session;
+  }
+  const {data,error}=await db.functions.invoke('workflow-user-admin',{
+    body,
+    headers:{Authorization:`Bearer ${session.access_token}`}
+  });
+  if(error){
+    let detail=data;
+    try{if(!detail&&error?.context?.clone)detail=await error.context.clone().json()}catch{}
+    console.error('workflow-user-admin',error,detail);
+    throw new Error(detail?.error||detail?.detail||error.message||'요청을 처리하지 못했습니다.');
+  }
+  if(data?.error)throw new Error(data.error||data.detail);
   return data||{};
 }
 function passwordErrorMessage(code){return ({wrong_current_password:'현재 비밀번호가 맞지 않습니다. 다시 확인해 주세요.',password_too_short:'보안을 위해 새 비밀번호는 8자 이상 입력해 주세요.',same_password:'새 비밀번호는 현재 비밀번호와 다르게 입력해 주세요.',forbidden:'관리자 권한이 없습니다.'})[code]||code||'비밀번호 변경에 실패했습니다.'}
@@ -618,8 +633,10 @@ async function loadAdminUsers(){
     renderAdminResetRequests(data.reset_requests||[]);
   }catch(err){
     console.error(err);
-    $('#adminUsersList').innerHTML='<div class="admin-empty">사용자 목록을 불러오지 못했습니다.</div>';
-    $('#adminResetRequests').innerHTML='<div class="admin-empty">요청 목록을 불러오지 못했습니다.</div>';
+    const code=String(err?.message||'').trim();
+    const hint=(code==='login_required'||code==='invalid_user'||code==='missing_token')?'로그인 정보가 만료되었습니다. 로그아웃 후 다시 로그인해 주세요.':'잠시 후 다시 시도해 주세요.';
+    $('#adminUsersList').innerHTML=`<div class="admin-empty">사용자 목록을 불러오지 못했습니다.<br><small>${hint}</small></div>`;
+    $('#adminResetRequests').innerHTML=`<div class="admin-empty">요청 목록을 불러오지 못했습니다.<br><small>${hint}</small></div>`;
     toast('사용자 관리 정보를 불러오지 못했습니다.');
   }
 }
